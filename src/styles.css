@@ -238,6 +238,13 @@ a {
   animation: cursor-blink 0.7s step-start infinite;
 }
 
+.typewriter-cursor {
+  border-radius: 999px;
+  box-shadow:
+    0 0 10px currentColor,
+    0 0 22px currentColor;
+}
+
 @keyframes egg-float {
   0%, 100% {
     transform: translateY(0px) rotate(-1deg);

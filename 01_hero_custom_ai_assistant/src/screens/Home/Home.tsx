@@ -26,12 +26,36 @@ function useTypewriter(text: string, speed = 55, startDelay = 400) {
     return () => clearTimeout(t);
   }, [started, displayed, text, speed]);
 
-  return displayed;
+  return { count: displayed, started, done: displayed >= text.length };
+}
+
+function getCursorTone(count: number) {
+  const firstLineEnd = LINES[0].text.length;
+  const secondLineEnd = firstLineEnd + LINES[1].text.length;
+
+  if (count <= firstLineEnd) {
+    return "text-white";
+  }
+
+  if (count <= secondLineEnd) {
+    return "text-[#08d070]";
+  }
+
+  return "text-white";
+}
+
+function TypewriterCursor({ count }: { count: number }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`typewriter-cursor inline-block w-[4px] ml-[3px] bg-current align-middle animate-cursor-blink ${getCursorTone(count)}`}
+      style={{ height: "0.85em", verticalAlign: "middle" }}
+    />
+  );
 }
 
 function TypewriterHero() {
-  const count = useTypewriter(FULL_TEXT, 55, 400);
-  const done = count >= FULL_TEXT.length;
+  const { count, started } = useTypewriter(FULL_TEXT, 55, 400);
 
   let remaining = count;
   const segments = LINES.map((line) => {
@@ -52,16 +76,13 @@ function TypewriterHero() {
         </>
       )}
       <span className={segments[2].color}>{segments[2].visible}</span>
-      {!done && (
-        <span className="inline-block w-[4px] ml-[3px] bg-current align-middle animate-cursor-blink" style={{ height: "0.85em", verticalAlign: "middle" }} />
-      )}
+      {started && <TypewriterCursor count={Math.max(count, 1)} />}
     </p>
   );
 }
 
 function TypewriterDesktop() {
-  const count = useTypewriter(FULL_TEXT, 55, 400);
-  const done = count >= FULL_TEXT.length;
+  const { count, started } = useTypewriter(FULL_TEXT, 55, 400);
 
   let remaining = count;
   const segments = LINES.map((line) => {
@@ -82,9 +103,7 @@ function TypewriterDesktop() {
         </>
       )}
       <span className={segments[2].color}>{segments[2].visible}</span>
-      {!done && (
-        <span className="inline-block w-[4px] ml-[3px] bg-current align-middle animate-cursor-blink" style={{ height: "0.85em", verticalAlign: "middle" }} />
-      )}
+      {started && <TypewriterCursor count={Math.max(count, 1)} />}
     </>
   );
 }
