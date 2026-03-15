@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": [
+    "src",
+    "01_hero_custom_ai_assistant/src/**/*",
+    "02_instant_business_results/src/**/*",
+    "03_clients_logos/src/**/*",
+    "04_services_directions/src/**/*",
+    "06_cases_animated/src/**/*",
+    "07_roadmap/src/**/*",
+    "08_contact_form/src/**/*",
+    "09_ai_process_integrations/src/**/*",
+    "10_work_process/src/**/*",
+    "11_team/src/**/*",
+    "12_demo_cta/src/**/*",
+    "13_footer_contacts/src/**/*"
+  ]
+}
