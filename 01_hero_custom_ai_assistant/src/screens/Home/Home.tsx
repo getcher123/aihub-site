@@ -88,7 +88,12 @@ function TypewriterDesktop() {
 }
 
 export const Home = (): JSX.Element => {
-  const navItems = ["Услуги", "Кейсы", "Дорожная карта", "Команда"];
+  const navItems = [
+    { label: "Услуги", href: "#services" },
+    { label: "Кейсы", href: "#cases" },
+    { label: "Дорожная карта", href: "#roadmap" },
+    { label: "Команда", href: "#team" },
+  ];
 
   return (
     <div
@@ -167,12 +172,13 @@ export const Home = (): JSX.Element => {
 
         <div className="inline-flex items-center gap-[60px] absolute top-[68px] left-[693px]">
           {navItems.map((item) => (
-            <div
-              key={item}
-              className="relative w-fit mt-[-1.00px] [font-family:'Geologica',Helvetica] font-normal text-white text-sm text-center tracking-[0] leading-[18.2px] whitespace-nowrap"
+            <a
+              key={item.href}
+              href={item.href}
+              className="hero-nav-link relative w-fit mt-[-1.00px] [font-family:'Geologica',Helvetica] font-normal text-white text-sm text-center tracking-[0] leading-[18.2px] whitespace-nowrap"
             >
-              {item}
-            </div>
+              {item.label}
+            </a>
           ))}
         </div>
       </div>
@@ -194,11 +200,11 @@ export const Home = (): JSX.Element => {
           <nav className="hidden md:flex items-center gap-6 lg:gap-10">
             {navItems.map((item) => (
               <a
-                key={item}
-                href="#"
-                className="[font-family:'Geologica',Helvetica] font-normal text-white text-sm text-center tracking-[0] leading-[18.2px] whitespace-nowrap hover:text-LZ-cyid transition-colors"
+                key={item.href}
+                href={item.href}
+                className="hero-nav-link [font-family:'Geologica',Helvetica] font-normal text-white text-sm text-center tracking-[0] leading-[18.2px] whitespace-nowrap"
               >
-                {item}
+                {item.label}
               </a>
             ))}
           </nav>
