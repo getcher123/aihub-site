@@ -68,7 +68,13 @@ export const Home = (): JSX.Element => {
   return (
     <div className="w-full relative overflow-visible" data-model-id="316:6667">
       <div className="hidden min-[1200px]:block">
-        <DesktopScaleFrame baseWidth={1920} baseHeight={505}>
+        <DesktopScaleFrame
+          baseWidth={1920}
+          baseHeight={505}
+          contentLeft={380}
+          contentWidth={1160}
+          targetWidth={1140}
+        >
           <div className="relative h-[505px] w-[1920px]">
           <p className="absolute top-[92px] left-[calc(50.00%_-_570px)] w-[1140px] font-bold text-transparent text-[64px] text-center leading-[76.8px] [font-family:'Geologica',Helvetica] tracking-[0] timeline-appear">
             <span className="text-[#ffffff]">ТАК ОБЫЧНО ВЫГЛЯДИТ </span>
