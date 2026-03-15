@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 
 import { DesktopScaleFrame } from "../../../../src/components/DesktopScaleFrame";
+import { useRevealOnView } from "../../../../src/hooks/useRevealOnView";
 
 type DesktopStep = {
   number: string;
@@ -65,8 +66,15 @@ const getDelayStyle = (index: number, offset = 0): CSSProperties =>
   ({ "--timeline-delay": `${index * 0.18 + offset}s` }) as CSSProperties;
 
 export const Home = (): JSX.Element => {
+  const { ref, isVisible } = useRevealOnView<HTMLDivElement>();
+  const getTimelineClassName = (
+    baseClassName: string,
+    animationClassName: string,
+    pendingClassName: string,
+  ) => `${baseClassName} ${isVisible ? animationClassName : pendingClassName}`;
+
   return (
-    <div className="w-full relative overflow-visible" data-model-id="316:6667">
+    <div ref={ref} className="w-full relative overflow-visible" data-model-id="316:6667">
       <div className="hidden min-[1200px]:block">
         <DesktopScaleFrame
           baseWidth={1920}
@@ -76,20 +84,34 @@ export const Home = (): JSX.Element => {
           targetWidth={1140}
         >
           <div className="relative h-[505px] w-[1920px]">
-          <p className="absolute top-[92px] left-[calc(50.00%_-_570px)] w-[1140px] font-bold text-transparent text-[64px] text-center leading-[76.8px] [font-family:'Geologica',Helvetica] tracking-[0] timeline-appear">
+          <p
+            className={getTimelineClassName(
+              "absolute top-[92px] left-[calc(50.00%_-_570px)] w-[1140px] font-bold text-transparent text-[64px] text-center leading-[76.8px] [font-family:'Geologica',Helvetica] tracking-[0]",
+              "timeline-appear",
+              "timeline-appear-pending",
+            )}
+          >
             <span className="text-[#ffffff]">ТАК ОБЫЧНО ВЫГЛЯДИТ </span>
             <span className="text-[#bf5bf3]">ПРОЦЕСС РАБОТЫ:</span>
           </p>
 
           <img
-            className="absolute w-[1160px] h-[166px] top-5 left-[380px] timeline-appear"
+            className={getTimelineClassName(
+              "absolute w-[1160px] h-[166px] top-5 left-[380px]",
+              "timeline-appear",
+              "timeline-appear-pending",
+            )}
             style={getDelayStyle(0, 0.08)}
             alt="Union"
             src="https://c.animaapp.com/lSZ9nsWk/img/union.svg"
           />
 
           <img
-            className="absolute top-[318px] left-[488px] w-[945px] h-0.5 timeline-line-grow"
+            className={getTimelineClassName(
+              "absolute top-[318px] left-[488px] w-[945px] h-0.5",
+              "timeline-line-grow",
+              "timeline-line-grow-pending",
+            )}
             style={getDelayStyle(0, 0.15)}
             alt="Vector"
             src="https://c.animaapp.com/lSZ9nsWk/img/vector-59.svg"
@@ -98,7 +120,11 @@ export const Home = (): JSX.Element => {
           {desktopSteps.map((step, index) => (
             <img
               key={`line-${index}`}
-              className={`absolute top-80 ${step.lineLeft} w-0.5 h-[185px] timeline-line-grow-vertical`}
+              className={getTimelineClassName(
+                `absolute top-80 ${step.lineLeft} w-0.5 h-[185px]`,
+                "timeline-line-grow-vertical",
+                "timeline-line-grow-vertical-pending",
+              )}
               style={getDelayStyle(index, 0.22)}
               alt="Vector"
               src={`https://c.animaapp.com/lSZ9nsWk/img/vector-${60 + index}.svg`}
@@ -108,7 +134,11 @@ export const Home = (): JSX.Element => {
           {desktopSteps.map((step, index) => (
             <div
               key={`dot-${index}`}
-              className={`${step.dotLeft} absolute top-[311px] w-[18px] h-[18px] flex bg-ptd-d-av rounded-[9px] blur-[6px] timeline-appear`}
+              className={getTimelineClassName(
+                `${step.dotLeft} absolute top-[311px] w-[18px] h-[18px] flex bg-ptd-d-av rounded-[9px] blur-[6px]`,
+                "timeline-appear",
+                "timeline-appear-pending",
+              )}
               style={getDelayStyle(index, 0.25)}
             >
               <div className="mt-0.5 w-3.5 h-3.5 ml-0.5 rounded-[7px] [background:radial-gradient(50%_50%_at_50%_50%,rgba(255,228,100,1)_0%,rgba(255,212,9,1)_100%)]" />
@@ -118,14 +148,25 @@ export const Home = (): JSX.Element => {
           {desktopSteps.map((step, index) => (
             <div
               key={`number-${index}`}
-              className={`${step.numberLeft} absolute top-[271px] bg-[linear-gradient(180deg,rgba(255,212,9,1)_0%,rgba(255,212,9,0)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] opacity-30 [font-family:'Manrope',Helvetica] font-extrabold text-transparent text-8xl text-center tracking-[0] leading-[115.2px] whitespace-nowrap timeline-appear`}
+              className={getTimelineClassName(
+                `${step.numberLeft} absolute top-[271px] bg-[linear-gradient(180deg,rgba(255,212,9,1)_0%,rgba(255,212,9,0)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] opacity-30 [font-family:'Manrope',Helvetica] font-extrabold text-transparent text-8xl text-center tracking-[0] leading-[115.2px] whitespace-nowrap`,
+                "timeline-appear",
+                "timeline-appear-pending",
+              )}
               style={getDelayStyle(index, 0.3)}
             >
               {step.number}
             </div>
           ))}
 
-          <div className="inline-flex flex-col items-start gap-[30px] absolute top-[359px] left-[482px] timeline-appear" style={getDelayStyle(0, 0.32)}>
+          <div
+            className={getTimelineClassName(
+              "inline-flex flex-col items-start gap-[30px] absolute top-[359px] left-[482px]",
+              "timeline-appear",
+              "timeline-appear-pending",
+            )}
+            style={getDelayStyle(0, 0.32)}
+          >
             <div className="flex items-start gap-2.5 relative self-stretch w-full flex-[0_0_auto]">
               <div className="relative w-4 h-4">
                 <div className="absolute top-px left-px w-3.5 h-3.5 bg-ptd-d-av rounded-[7px] blur-[6px]" />
@@ -151,7 +192,14 @@ export const Home = (): JSX.Element => {
             </div>
           </div>
 
-          <div className="inline-flex flex-col items-start gap-[30px] absolute top-[359px] left-[717px] timeline-appear" style={getDelayStyle(1, 0.32)}>
+          <div
+            className={getTimelineClassName(
+              "inline-flex flex-col items-start gap-[30px] absolute top-[359px] left-[717px]",
+              "timeline-appear",
+              "timeline-appear-pending",
+            )}
+            style={getDelayStyle(1, 0.32)}
+          >
             <div className="flex items-start gap-2.5 relative self-stretch w-full flex-[0_0_auto]">
               <div className="relative w-4 h-4">
                 <div className="absolute top-px left-px w-3.5 h-3.5 bg-ptd-d-av rounded-[7px] blur-[6px]" />
@@ -179,7 +227,14 @@ export const Home = (): JSX.Element => {
             </div>
           </div>
 
-          <div className="flex flex-col w-[222px] items-start gap-[30px] absolute top-[359px] left-[954px] timeline-appear" style={getDelayStyle(2, 0.32)}>
+          <div
+            className={getTimelineClassName(
+              "flex flex-col w-[222px] items-start gap-[30px] absolute top-[359px] left-[954px]",
+              "timeline-appear",
+              "timeline-appear-pending",
+            )}
+            style={getDelayStyle(2, 0.32)}
+          >
             <div className="flex items-start gap-2.5 relative self-stretch w-full flex-[0_0_auto]">
               <div className="relative w-4 h-4">
                 <div className="absolute top-px left-px w-3.5 h-3.5 bg-ptd-d-av rounded-[7px] blur-[6px]" />
@@ -193,7 +248,14 @@ export const Home = (): JSX.Element => {
             </div>
           </div>
 
-          <div className="flex flex-col w-[222px] items-start gap-[30px] absolute top-[359px] left-[1189px] timeline-appear" style={getDelayStyle(3, 0.32)}>
+          <div
+            className={getTimelineClassName(
+              "flex flex-col w-[222px] items-start gap-[30px] absolute top-[359px] left-[1189px]",
+              "timeline-appear",
+              "timeline-appear-pending",
+            )}
+            style={getDelayStyle(3, 0.32)}
+          >
             <div className="flex items-start gap-2.5 relative self-stretch w-full flex-[0_0_auto]">
               <div className="relative w-4 h-4">
                 <div className="absolute top-px left-px w-3.5 h-3.5 bg-ptd-d-av rounded-[7px] blur-[6px]" />
@@ -211,16 +273,36 @@ export const Home = (): JSX.Element => {
       </div>
 
       <div className="min-[1200px]:hidden max-w-[430px] mx-auto px-5 pt-12 pb-10">
-        <p className="font-bold text-transparent text-[32px] leading-[38.4px] [font-family:'Geologica',Helvetica] tracking-[0]">
+        <p
+          className={getTimelineClassName(
+            "font-bold text-transparent text-[32px] leading-[38.4px] [font-family:'Geologica',Helvetica] tracking-[0]",
+            "timeline-appear",
+            "timeline-appear-pending",
+          )}
+        >
           <span className="text-white">ТАК ОБЫЧНО ВЫГЛЯДИТ </span>
           <span className="text-[#bf5bf3]">ПРОЦЕСС РАБОТЫ:</span>
         </p>
 
         <div className="relative mt-10 pl-8">
-          <div className="absolute left-[7px] top-3 bottom-3 w-0.5 bg-white/20 timeline-line-grow-vertical" />
+          <div
+            className={getTimelineClassName(
+              "absolute left-[7px] top-3 bottom-3 w-0.5 bg-white/20",
+              "timeline-line-grow-vertical",
+              "timeline-line-grow-vertical-pending",
+            )}
+          />
 
           {mobileSteps.map((step, index) => (
-            <div key={step.number} className="relative pb-8 timeline-appear" style={getDelayStyle(index, 0.1)}>
+            <div
+              key={step.number}
+              className={getTimelineClassName(
+                "relative pb-8",
+                "timeline-appear",
+                "timeline-appear-pending",
+              )}
+              style={getDelayStyle(index, 0.1)}
+            >
               <div className="absolute left-[-31px] top-[10px] w-[18px] h-[18px] flex bg-ptd-d-av rounded-[9px] blur-[6px]">
                 <div className="mt-0.5 w-3.5 h-3.5 ml-0.5 rounded-[7px] [background:radial-gradient(50%_50%_at_50%_50%,rgba(255,228,100,1)_0%,rgba(255,212,9,1)_100%)]" />
               </div>

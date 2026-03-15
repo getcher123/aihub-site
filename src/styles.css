@@ -1696,6 +1696,11 @@ a {
   animation-delay: var(--timeline-delay, 0s);
 }
 
+.timeline-appear-pending {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
 .timeline-line-grow {
   transform-origin: left center;
   transform: scaleX(0);
@@ -1703,11 +1708,23 @@ a {
   animation-delay: var(--timeline-delay, 0s);
 }
 
+.timeline-line-grow-pending {
+  transform-origin: left center;
+  transform: scaleX(0);
+  opacity: 0.5;
+}
+
 .timeline-line-grow-vertical {
   transform-origin: top center;
   transform: scaleY(0);
   animation: timeline-line-grow-vertical 0.6s ease forwards;
   animation-delay: var(--timeline-delay, 0s);
+}
+
+.timeline-line-grow-vertical-pending {
+  transform-origin: top center;
+  transform: scaleY(0);
+  opacity: 0.5;
 }
 
 @keyframes timeline-appear {
