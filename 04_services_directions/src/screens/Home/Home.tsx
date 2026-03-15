@@ -1,4 +1,7 @@
+import type { CSSProperties } from "react";
+
 import { DesktopScaleFrame } from "../../../../src/components/DesktopScaleFrame";
+import { useRevealOnView } from "../../../../src/hooks/useRevealOnView";
 
 const serviceItems = [
   {
@@ -23,9 +26,18 @@ const serviceItems = [
   },
 ];
 
+const getRevealStyle = (delay: number): CSSProperties =>
+  ({ "--reveal-delay": `${delay}s` }) as CSSProperties;
+
 export const Home = (): JSX.Element => {
+  const { ref, isVisible } = useRevealOnView<HTMLDivElement>();
+  const getRevealClassName = (baseClassName: string) =>
+    `${baseClassName} reveal-sequence-item${isVisible ? " reveal-sequence-item--visible" : ""}`;
+  const getAnimatedClassName = (baseClassName: string, animationClassName: string) =>
+    `${baseClassName}${isVisible ? ` ${animationClassName}` : " opacity-0"}`;
+
   return (
-    <div className="w-full relative overflow-visible" data-model-id="316:6212">
+    <div ref={ref} className="w-full relative overflow-visible" data-model-id="316:6212">
       <div className="hidden min-[1200px]:block">
         <DesktopScaleFrame
           baseWidth={1920}
@@ -35,9 +47,15 @@ export const Home = (): JSX.Element => {
           targetWidth={1140}
         >
           <div className="relative h-[800px] w-[1920px]">
-        <div className="absolute top-[172px] left-[344px] w-[456px] h-[456px] bg-x-2l-jg-IF rounded-[228px] blur-[200px] opacity-10" />
+        <div
+          className={getRevealClassName("absolute top-[172px] left-[344px] w-[456px] h-[456px] bg-x-2l-jg-IF rounded-[228px] blur-[200px] opacity-10")}
+          style={getRevealStyle(0.02)}
+        />
 
-        <div className="animate-egg-float absolute top-[31px] left-[94px] w-[529px] h-[709px] flex opacity-40 bg-[url(https://c.animaapp.com/M0Twn3KI/img/egg-2.png)] bg-cover bg-[50%_50%]">
+        <div
+          className={getRevealClassName("animate-egg-float absolute top-[31px] left-[94px] w-[529px] h-[709px] flex opacity-40 bg-[url(https://c.animaapp.com/M0Twn3KI/img/egg-2.png)] bg-cover bg-[50%_50%]")}
+          style={getRevealStyle(0.08)}
+        >
           <img
             className="w-[529.44px] h-[709px] object-cover"
             alt="Egg"
@@ -46,19 +64,32 @@ export const Home = (): JSX.Element => {
         </div>
 
         <img
-          className="absolute w-[782px] h-[153px] top-[334px] left-[389px]"
+          className={getRevealClassName("absolute w-[782px] h-[153px] top-[334px] left-[389px]")}
+          style={getRevealStyle(0.14)}
           alt="Union"
           src="https://c.animaapp.com/M0Twn3KI/img/union.svg"
         />
 
-        <div className="w-[458px] top-[30px] left-[389px] flex flex-col items-start justify-center gap-5 absolute">
-          <div className="animate-reveal-dot [--reveal-delay:0.1s] relative w-3.5 h-3.5 bg-x-2l-jg-IF rounded-[7px] blur-[5px]">
+        <div
+          className={getRevealClassName("w-[458px] top-[30px] left-[389px] flex flex-col items-start justify-center gap-5 absolute")}
+          style={getRevealStyle(0.2)}
+        >
+          <div
+            className={getAnimatedClassName("relative w-3.5 h-3.5 bg-x-2l-jg-IF rounded-[7px] blur-[5px]", "animate-reveal-dot")}
+            style={getRevealStyle(0.28)}
+          >
             <div className="relative top-0.5 left-0.5 w-2.5 h-2.5 rounded-[5px] [background:radial-gradient(50%_50%_at_50%_50%,rgba(220,154,255,1)_0%,rgba(191,91,243,1)_100%)]" />
           </div>
-          <div className="animate-reveal-title [--reveal-delay:0.5s] relative self-stretch font-medium text-x-2l-jg-IF text-lg leading-[21.6px] [font-family:'Geologica',Helvetica] tracking-[0]">
+          <div
+            className={getAnimatedClassName("relative self-stretch font-medium text-x-2l-jg-IF text-lg leading-[21.6px] [font-family:'Geologica',Helvetica] tracking-[0]", "animate-reveal-title")}
+            style={getRevealStyle(0.36)}
+          >
             Виртуальные сотрудники
           </div>
-          <p className="animate-reveal-text [--reveal-delay:0.9s] relative self-stretch font-light text-white text-sm leading-[16.8px] [font-family:'Geologica',Helvetica] tracking-[0]">
+          <p
+            className={getAnimatedClassName("relative self-stretch font-light text-white text-sm leading-[16.8px] [font-family:'Geologica',Helvetica] tracking-[0]", "animate-reveal-text")}
+            style={getRevealStyle(0.48)}
+          >
             Сократите расходы на поддержку клиентов в 3 раза. Голосовые <br />и
             текстовые AI-ассистенты встраиваются в ваши каналы связи (web, TG,
             PMS), работают 24/7, мгновенно отвечают и решают проблемы, снижают
@@ -68,14 +99,26 @@ export const Home = (): JSX.Element => {
           </p>
         </div>
 
-        <div className="w-[458px] top-[536px] left-[487px] rounded-[var(--collection-1-30)] flex flex-col items-start justify-center gap-5 absolute">
-          <div className="animate-reveal-dot [--reveal-delay:0.4s] relative w-3.5 h-3.5 bg-x-2l-jg-IF rounded-[7px] blur-[5px]">
+        <div
+          className={getRevealClassName("w-[458px] top-[536px] left-[487px] rounded-[var(--collection-1-30)] flex flex-col items-start justify-center gap-5 absolute")}
+          style={getRevealStyle(0.36)}
+        >
+          <div
+            className={getAnimatedClassName("relative w-3.5 h-3.5 bg-x-2l-jg-IF rounded-[7px] blur-[5px]", "animate-reveal-dot")}
+            style={getRevealStyle(0.44)}
+          >
             <div className="relative top-0.5 left-0.5 w-2.5 h-2.5 rounded-[5px] [background:radial-gradient(50%_50%_at_50%_50%,rgba(220,154,255,1)_0%,rgba(191,91,243,1)_100%)]" />
           </div>
-          <div className="animate-reveal-title [--reveal-delay:0.8s] relative self-stretch font-medium text-x-2l-jg-IF text-lg leading-[21.6px] [font-family:'Geologica',Helvetica] tracking-[0]">
+          <div
+            className={getAnimatedClassName("relative self-stretch font-medium text-x-2l-jg-IF text-lg leading-[21.6px] [font-family:'Geologica',Helvetica] tracking-[0]", "animate-reveal-title")}
+            style={getRevealStyle(0.52)}
+          >
             Автоматизация бизнес-процессов
           </div>
-          <p className="animate-reveal-text [--reveal-delay:1.2s] relative self-stretch font-light text-white text-sm leading-[16.8px] [font-family:'Geologica',Helvetica] tracking-[0]">
+          <p
+            className={getAnimatedClassName("relative self-stretch font-light text-white text-sm leading-[16.8px] [font-family:'Geologica',Helvetica] tracking-[0]", "animate-reveal-text")}
+            style={getRevealStyle(0.64)}
+          >
             Освободите сотрудников от рутины и ускорьте работу в 5-10 раз. Вместо
             ручной обработки и структурирования данных <br />
             вы получаете автоматическое создание описаний товаров, статей, постов
@@ -84,14 +127,26 @@ export const Home = (): JSX.Element => {
           </p>
         </div>
 
-        <div className="w-[570px] top-[164px] left-[974px] flex flex-col items-start justify-center gap-5 absolute">
-          <div className="animate-reveal-dot [--reveal-delay:0.7s] relative w-3.5 h-3.5 bg-x-2l-jg-IF rounded-[7px] blur-[5px]">
+        <div
+          className={getRevealClassName("w-[570px] top-[164px] left-[974px] flex flex-col items-start justify-center gap-5 absolute")}
+          style={getRevealStyle(0.52)}
+        >
+          <div
+            className={getAnimatedClassName("relative w-3.5 h-3.5 bg-x-2l-jg-IF rounded-[7px] blur-[5px]", "animate-reveal-dot")}
+            style={getRevealStyle(0.6)}
+          >
             <div className="relative top-0.5 left-0.5 w-2.5 h-2.5 rounded-[5px] [background:radial-gradient(50%_50%_at_50%_50%,rgba(220,154,255,1)_0%,rgba(191,91,243,1)_100%)]" />
           </div>
-          <div className="animate-reveal-title [--reveal-delay:1.1s] relative self-stretch [font-family:'Geologica',Helvetica] font-medium text-x-2l-jg-IF text-lg tracking-[0] leading-[21.6px]">
+          <div
+            className={getAnimatedClassName("relative self-stretch [font-family:'Geologica',Helvetica] font-medium text-x-2l-jg-IF text-lg tracking-[0] leading-[21.6px]", "animate-reveal-title")}
+            style={getRevealStyle(0.68)}
+          >
             AI аналитика
           </div>
-          <p className="animate-reveal-text [--reveal-delay:1.5s] relative self-stretch font-light text-white text-sm leading-[16.8px] [font-family:'Geologica',Helvetica] tracking-[0]">
+          <p
+            className={getAnimatedClassName("relative self-stretch font-light text-white text-sm leading-[16.8px] [font-family:'Geologica',Helvetica] tracking-[0]", "animate-reveal-text")}
+            style={getRevealStyle(0.8)}
+          >
             Вы загружаете свои данные и с помощью AI-инструментов получаете:
             структурированные отчеты, real-time обновления новостей/котировок,{" "}
             <br />
@@ -102,14 +157,26 @@ export const Home = (): JSX.Element => {
           </p>
         </div>
 
-        <div className="w-[361px] top-[545px] left-[1169px] flex flex-col items-start justify-center gap-5 absolute">
-          <div className="animate-reveal-dot [--reveal-delay:1.0s] relative w-3.5 h-3.5 bg-x-2l-jg-IF rounded-[7px] blur-[5px]">
+        <div
+          className={getRevealClassName("w-[361px] top-[545px] left-[1169px] flex flex-col items-start justify-center gap-5 absolute")}
+          style={getRevealStyle(0.68)}
+        >
+          <div
+            className={getAnimatedClassName("relative w-3.5 h-3.5 bg-x-2l-jg-IF rounded-[7px] blur-[5px]", "animate-reveal-dot")}
+            style={getRevealStyle(0.76)}
+          >
             <div className="relative top-0.5 left-0.5 w-2.5 h-2.5 rounded-[5px] [background:radial-gradient(50%_50%_at_50%_50%,rgba(220,154,255,1)_0%,rgba(191,91,243,1)_100%)]" />
           </div>
-          <div className="animate-reveal-title [--reveal-delay:1.4s] relative self-stretch font-medium text-x-2l-jg-IF text-lg leading-[21.6px] [font-family:'Geologica',Helvetica] tracking-[0]">
+          <div
+            className={getAnimatedClassName("relative self-stretch font-medium text-x-2l-jg-IF text-lg leading-[21.6px] [font-family:'Geologica',Helvetica] tracking-[0]", "animate-reveal-title")}
+            style={getRevealStyle(0.84)}
+          >
             Рекомендательные системы
           </div>
-          <p className="animate-reveal-text [--reveal-delay:1.8s] relative self-stretch font-light text-white text-sm leading-[16.8px] [font-family:'Geologica',Helvetica] tracking-[0]">
+          <p
+            className={getAnimatedClassName("relative self-stretch font-light text-white text-sm leading-[16.8px] [font-family:'Geologica',Helvetica] tracking-[0]", "animate-reveal-text")}
+            style={getRevealStyle(0.96)}
+          >
             Увеличьте средний чек на 20-30%&nbsp;&nbsp;
             <br />
             без дополнительных расходов на рекламу <br />и взрастите вовлеченность
@@ -119,15 +186,38 @@ export const Home = (): JSX.Element => {
           </p>
         </div>
 
-        <p className="absolute top-[333px] left-[584px] w-[555px] font-bold text-transparent text-[64px] leading-[76.8px] [font-family:'Geologica',Helvetica] tracking-[0]">
+        <p
+          className={getRevealClassName("absolute top-[333px] left-[584px] w-[555px] font-bold text-transparent text-[64px] leading-[76.8px] [font-family:'Geologica',Helvetica] tracking-[0]")}
+          style={getRevealStyle(0.18)}
+        >
           <span className="text-[#bf5bf3]">НАШИ </span>
           <span className="text-[#ffffff]">НАПРАВЛЕНИЯ</span>
         </p>
 
-        <img className="top-[73px] left-[974px] absolute w-px h-[498px]" alt="Vector" src="https://c.animaapp.com/M0Twn3KI/img/vector-53.svg" />
-        <img className="left-[1169px] bottom-0 absolute w-px h-[498px]" alt="Vector" src="https://c.animaapp.com/M0Twn3KI/img/vector-56.svg" />
-        <img className="top-[13px] left-[388px] absolute w-px h-[498px]" alt="Vector" src="https://c.animaapp.com/M0Twn3KI/img/vector-54.svg" />
-        <img className="top-[273px] left-[485px] absolute w-px h-[498px]" alt="Vector" src="https://c.animaapp.com/M0Twn3KI/img/vector-55.svg" />
+        <img
+          className={getRevealClassName("top-[73px] left-[974px] absolute w-px h-[498px]")}
+          style={getRevealStyle(0.3)}
+          alt="Vector"
+          src="https://c.animaapp.com/M0Twn3KI/img/vector-53.svg"
+        />
+        <img
+          className={getRevealClassName("left-[1169px] bottom-0 absolute w-px h-[498px]")}
+          style={getRevealStyle(0.46)}
+          alt="Vector"
+          src="https://c.animaapp.com/M0Twn3KI/img/vector-56.svg"
+        />
+        <img
+          className={getRevealClassName("top-[13px] left-[388px] absolute w-px h-[498px]")}
+          style={getRevealStyle(0.14)}
+          alt="Vector"
+          src="https://c.animaapp.com/M0Twn3KI/img/vector-54.svg"
+        />
+        <img
+          className={getRevealClassName("top-[273px] left-[485px] absolute w-px h-[498px]")}
+          style={getRevealStyle(0.38)}
+          alt="Vector"
+          src="https://c.animaapp.com/M0Twn3KI/img/vector-55.svg"
+        />
           </div>
         </DesktopScaleFrame>
       </div>
@@ -144,7 +234,10 @@ export const Home = (): JSX.Element => {
 
         <div className="relative z-10 mx-auto max-w-6xl">
           <div className="max-w-3xl">
-            <p className="font-bold text-3xl leading-tight sm:text-5xl md:text-6xl [font-family:'Geologica',Helvetica]">
+            <p
+              className={getRevealClassName("font-bold text-3xl leading-tight sm:text-5xl md:text-6xl [font-family:'Geologica',Helvetica]")}
+              style={getRevealStyle(0.06)}
+            >
               <span className="text-[#bf5bf3]">НАШИ </span>
               <span className="text-white">НАПРАВЛЕНИЯ</span>
             </p>
@@ -154,16 +247,26 @@ export const Home = (): JSX.Element => {
             {serviceItems.map((item, index) => (
               <article
                 key={item.title}
-                className={`relative rounded-[28px] bg-[#060c2499] p-5 sm:p-6 backdrop-blur-[10px] before:pointer-events-none before:absolute before:inset-0 before:rounded-[28px] before:p-px before:[background:linear-gradient(112deg,rgba(191,91,243,1)_0%,rgba(191,91,243,0)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] ${
+                className={getRevealClassName(`relative rounded-[28px] bg-[#060c2499] p-5 sm:p-6 backdrop-blur-[10px] before:pointer-events-none before:absolute before:inset-0 before:rounded-[28px] before:p-px before:[background:linear-gradient(112deg,rgba(191,91,243,1)_0%,rgba(191,91,243,0)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] ${
                   index === 0 ? "md:col-span-2" : ""
-                }`}
+                }`)}
+                style={getRevealStyle(0.18 + index * 0.18)}
               >
                 <div className="relative z-10">
-                  <div className="h-3.5 w-3.5 rounded-[7px] bg-x-2l-jg-IF blur-[1px]" />
-                  <div className="mt-5 font-medium text-[#bf5bf3] text-xl leading-tight [font-family:'Geologica',Helvetica]">
+                  <div
+                    className={getAnimatedClassName("h-3.5 w-3.5 rounded-[7px] bg-x-2l-jg-IF blur-[1px]", "animate-reveal-dot")}
+                    style={getRevealStyle(0.26 + index * 0.18)}
+                  />
+                  <div
+                    className={getAnimatedClassName("mt-5 font-medium text-[#bf5bf3] text-xl leading-tight [font-family:'Geologica',Helvetica]", "animate-reveal-title")}
+                    style={getRevealStyle(0.34 + index * 0.18)}
+                  >
                     {item.title}
                   </div>
-                  <p className="mt-3 font-light text-white text-sm sm:text-base leading-relaxed [font-family:'Geologica',Helvetica]">
+                  <p
+                    className={getAnimatedClassName("mt-3 font-light text-white text-sm sm:text-base leading-relaxed [font-family:'Geologica',Helvetica]", "animate-reveal-text")}
+                    style={getRevealStyle(0.46 + index * 0.18)}
+                  >
                     {item.text}
                   </p>
                 </div>
