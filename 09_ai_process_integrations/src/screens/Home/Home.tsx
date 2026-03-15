@@ -89,7 +89,7 @@ const infraCol3 = ["Vercel", "Netlify"];
 
 export const Home = (): JSX.Element => {
   return (
-    <div className="w-full min-h-screen relative overflow-visible">
+    <div className="w-full relative overflow-visible">
       {/* Background decorative elements */}
       <div className="absolute top-5 left-1/2 -translate-x-1/4 w-[30vw] max-w-[456px] aspect-square bg-JMR-sn-8 rounded-full blur-[200px] opacity-20 pointer-events-none" />
 

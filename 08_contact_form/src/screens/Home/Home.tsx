@@ -9,7 +9,7 @@ export const Home = (): JSX.Element => {
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center overflow-visible relative">
+    <div className="w-full flex flex-col items-center overflow-visible relative">
       {/* Decorative glow */}
       <div className="absolute top-1/4 right-[10%] w-[20rem] h-[20rem] md:w-[28rem] md:h-[28rem] bg-wqw-a-mg rounded-full blur-[200px] opacity-10 pointer-events-none" />
 

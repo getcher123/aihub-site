@@ -25,7 +25,7 @@ const cards = [
 
 export const Home = (): JSX.Element => {
   return (
-    <div className="w-full min-h-screen relative overflow-visible">
+    <div className="w-full relative overflow-visible">
       {/* Desktop layout — preserved exactly as original */}
       <div className="hidden min-[1200px]:block">
         <DesktopScaleFrame baseWidth={1920} baseHeight={749}>
@@ -63,7 +63,7 @@ export const Home = (): JSX.Element => {
       </div>
 
       {/* Mobile / Tablet layout */}
-      <div className="min-[1200px]:hidden flex flex-col items-center px-4 sm:px-6 md:px-10 py-8 sm:py-12 gap-6">
+      <div className="min-[1200px]:hidden flex min-h-screen flex-col items-center px-4 sm:px-6 md:px-10 py-8 sm:py-12 gap-6">
         {/* Title */}
         <h1 className="[font-family:'Geologica',Helvetica] font-bold text-center text-2xl sm:text-3xl md:text-4xl min-[1200px]:text-5xl leading-tight">
           <span className="text-[#08d070]">ДОРОЖНАЯ </span>

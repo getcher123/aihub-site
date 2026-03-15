@@ -1,7 +1,7 @@
 export const Home = (): JSX.Element => {
   return (
     <div
-      className="w-full min-h-screen relative overflow-visible"
+      className="w-full relative overflow-visible"
       data-model-id="316:6839"
     >
       {/* Glow blob */}

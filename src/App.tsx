@@ -29,11 +29,13 @@ const sections = [
 export function App(): JSX.Element {
   return (
     <main className="relative overflow-x-hidden overflow-y-visible bg-[#060c24] text-white">
-      {sections.map(({ id, Component }) => (
+      {sections.map(({ id, Component }, index) => (
         <section
           key={id}
           id={id}
-          className="relative overflow-visible scroll-mt-6 min-[1200px]:scroll-mt-8"
+          className={`relative overflow-visible scroll-mt-6 min-[1200px]:scroll-mt-8 ${
+            index === 0 ? "" : "-mt-4 sm:-mt-6 min-[1200px]:-mt-8"
+          }`}
         >
           <Component />
         </section>
