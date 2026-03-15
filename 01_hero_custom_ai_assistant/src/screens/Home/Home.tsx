@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import { DesktopScaleFrame } from "../../../../src/components/DesktopScaleFrame";
+
 const LINES = [
   { text: "ВАШ КАСТОМНЫЙ ", color: "text-[#ffffff]" },
   { text: "AI-АССИСТЕНТ", color: "text-[#08d070]" },
@@ -39,7 +41,7 @@ function TypewriterHero() {
   });
 
   return (
-    <p className="font-bold text-transparent text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[5rem] xl:text-[86px] leading-[1.2] [font-family:'Geologica',Helvetica] tracking-[0]">
+    <p className="font-bold text-transparent text-[2rem] sm:text-[3rem] md:text-[4rem] min-[1200px]:text-[5rem] min-[1200px]:text-[86px] leading-[1.2] [font-family:'Geologica',Helvetica] tracking-[0]">
       <span className={segments[0].color}>{segments[0].visible}</span>
       {segments[0].visible.length === LINES[0].text.length && <br />}
       <span className={segments[1].color}>{segments[1].visible}</span>
@@ -100,7 +102,9 @@ export const Home = (): JSX.Element => {
       className="bg-[#060c24] w-full min-h-screen relative overflow-hidden"
       data-model-id="316:6178"
     >
-      <div className="hidden xl:block relative min-w-[1920px] min-h-[800px]">
+      <div className="hidden min-[1200px]:block">
+        <DesktopScaleFrame baseWidth={1920} baseHeight={800}>
+          <div className="relative h-[800px] w-[1920px]">
         <img
           className="absolute top-[580px] left-[391px] w-[555px] h-[131px] mix-blend-screen"
           alt="Group"
@@ -181,9 +185,11 @@ export const Home = (): JSX.Element => {
             </a>
           ))}
         </div>
+          </div>
+        </DesktopScaleFrame>
       </div>
 
-      <div className="xl:hidden flex flex-col min-h-screen">
+      <div className="min-[1200px]:hidden flex flex-col min-h-screen">
         <header className="flex items-center justify-between px-5 sm:px-8 md:px-12 pt-6 pb-4 relative z-20">
           <div className="relative">
             <div
@@ -197,7 +203,7 @@ export const Home = (): JSX.Element => {
             />
           </div>
 
-          <nav className="hidden md:flex items-center gap-6 lg:gap-10">
+          <nav className="hidden md:flex items-center gap-6 min-[1200px]:gap-10">
             {navItems.map((item) => (
               <a
                 key={item.href}

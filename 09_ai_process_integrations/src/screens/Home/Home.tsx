@@ -93,7 +93,7 @@ export const Home = (): JSX.Element => {
       {/* Background decorative elements */}
       <div className="absolute top-5 left-1/2 -translate-x-1/4 w-[30vw] max-w-[456px] aspect-square bg-JMR-sn-8 rounded-full blur-[200px] opacity-20 pointer-events-none" />
 
-      <div className="absolute top-[50px] left-1/2 -translate-x-1/3 w-[28vw] max-w-[529px] opacity-40 pointer-events-none hidden lg:block">
+      <div className="absolute top-[50px] left-1/2 -translate-x-1/3 w-[28vw] max-w-[529px] opacity-40 pointer-events-none hidden min-[1200px]:block">
         <div className="w-full aspect-[529/709] bg-[url(https://c.animaapp.com/C2kc9y9O/img/egg-2.png)] bg-cover bg-center">
           <img
             className="w-full h-full object-cover"
@@ -104,45 +104,45 @@ export const Home = (): JSX.Element => {
       </div>
 
       <img
-        className="absolute top-[267px] left-1/2 w-[13vw] max-w-[252px] pointer-events-none hidden lg:block"
+        className="absolute top-[267px] left-1/2 w-[13vw] max-w-[252px] pointer-events-none hidden min-[1200px]:block"
         alt="Union"
         src="https://c.animaapp.com/C2kc9y9O/img/union.svg"
       />
 
       <img
-        className="absolute w-[26vw] max-w-[498px] top-2.5 left-1/4 pointer-events-none hidden lg:block"
+        className="absolute w-[26vw] max-w-[498px] top-2.5 left-1/4 pointer-events-none hidden min-[1200px]:block"
         alt="Union"
         src="https://c.animaapp.com/C2kc9y9O/img/union-1.svg"
       />
 
       <img
-        className="absolute top-4 left-[45%] w-[17vw] max-w-[324px] pointer-events-none hidden lg:block"
+        className="absolute top-4 left-[45%] w-[17vw] max-w-[324px] pointer-events-none hidden min-[1200px]:block"
         alt="Ellipse"
         src="https://c.animaapp.com/C2kc9y9O/img/ellipse-8841.svg"
       />
 
       <img
-        className="absolute top-2.5 left-[38%] w-[22vw] max-w-[428px] pointer-events-none hidden lg:block"
+        className="absolute top-2.5 left-[38%] w-[22vw] max-w-[428px] pointer-events-none hidden min-[1200px]:block"
         alt="Ellipse"
         src="https://c.animaapp.com/C2kc9y9O/img/ellipse-8843.svg"
       />
 
       <img
-        className="absolute top-0 left-[33%] w-[30vw] max-w-[578px] pointer-events-none hidden lg:block"
+        className="absolute top-0 left-[33%] w-[30vw] max-w-[578px] pointer-events-none hidden min-[1200px]:block"
         alt="Ellipse"
         src="https://c.animaapp.com/C2kc9y9O/img/ellipse-8844.svg"
       />
 
       <img
-        className="absolute top-[526px] right-[10%] w-[15vw] max-w-[286px] pointer-events-none hidden lg:block"
+        className="absolute top-[526px] right-[10%] w-[15vw] max-w-[286px] pointer-events-none hidden min-[1200px]:block"
         alt="Ellipse"
         src="https://c.animaapp.com/C2kc9y9O/img/ellipse-8842.svg"
       />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-8 sm:py-12 md:py-14">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 min-[1200px]:px-16 min-[1200px]:px-20 py-8 sm:py-12 md:py-14">
         {/* Heading */}
-        <h1 className="font-geologica font-bold text-lg sm:text-xl md:text-2xl lg:text-[32px] leading-snug lg:leading-[38.4px] mb-8 sm:mb-10 md:mb-14 max-w-4xl">
+        <h1 className="font-geologica font-bold text-lg sm:text-xl md:text-2xl min-[1200px]:text-[32px] leading-snug min-[1200px]:leading-[38.4px] mb-8 sm:mb-10 md:mb-14 max-w-4xl">
           <span className="text-white">
             МЫ НЕ ЛОМАЕМ СУЩЕСТВУЮЩИЕ ПРОЦЕССЫ,{" "}
             <br className="hidden sm:block" />
@@ -152,7 +152,7 @@ export const Home = (): JSX.Element => {
         </h1>
 
         {/* Integration grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 min-[1200px]:gap-10">
           {/* Left column */}
           <div className="flex flex-col gap-6 sm:gap-8">
             <IntegrationCard label="CRM" columns={[crmCol1, crmCol2]} />

@@ -1,3 +1,5 @@
+import { DesktopScaleFrame } from "../../../../src/components/DesktopScaleFrame";
+
 const resultCards = [
   {
     title: "Экономия времени",
@@ -19,7 +21,9 @@ const resultCards = [
 export const Home = (): JSX.Element => {
   return (
     <div className="bg-[#060c24] w-full relative overflow-hidden" data-model-id="316:6743">
-      <div className="hidden min-[1920px]:block relative min-w-[1920px] min-h-[800px]">
+      <div className="hidden min-[1200px]:block">
+        <DesktopScaleFrame baseWidth={1920} baseHeight={800}>
+          <div className="relative h-[800px] w-[1920px]">
         <div className="absolute top-[121px] left-[811px] w-[456px] h-[456px] bg-jo2i-fe rounded-[228px] blur-[200px] opacity-20" />
 
         <div className="animate-float absolute top-[31px] left-[1267px] w-[529px] h-[709px] flex opacity-40 bg-[url(https://c.animaapp.com/98I8TU6Y/img/egg-2.png)] bg-cover bg-[50%_50%]">
@@ -87,9 +91,11 @@ export const Home = (): JSX.Element => {
           alt="Union"
           src="https://c.animaapp.com/98I8TU6Y/img/union.svg"
         />
+          </div>
+        </DesktopScaleFrame>
       </div>
 
-      <div className="min-[1920px]:hidden relative px-5 sm:px-8 md:px-12 py-12 sm:py-16">
+      <div className="min-[1200px]:hidden relative px-5 sm:px-8 md:px-12 py-12 sm:py-16">
         <div className="absolute top-[8%] right-[-5%] w-[18rem] h-[18rem] sm:w-[24rem] sm:h-[24rem] bg-jo2i-fe rounded-full blur-[160px] opacity-15 pointer-events-none" />
 
         <div className="absolute top-8 right-[-12%] sm:right-0 w-[52vw] max-w-[22rem] opacity-35 pointer-events-none">
@@ -127,12 +133,12 @@ export const Home = (): JSX.Element => {
             />
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 min-[1200px]:grid-cols-3">
             {resultCards.map((card, index) => (
               <article
                 key={card.title}
                 className={`relative overflow-hidden rounded-[28px] bg-[#060c2499] p-5 sm:p-6 backdrop-blur-[10px] before:pointer-events-none before:absolute before:inset-0 before:rounded-[28px] before:p-px before:[background:linear-gradient(112deg,rgba(255,212,9,1)_0%,rgba(255,212,9,0)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] ${
-                  index === 2 ? "md:col-span-2 xl:col-span-1" : ""
+                  index === 2 ? "md:col-span-2 min-[1200px]:col-span-1" : ""
                 }`}
               >
                 <img

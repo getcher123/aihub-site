@@ -179,7 +179,7 @@ export const Home = (): JSX.Element => {
       </div>
 
       {/* Title */}
-      <p className="mt-4 sm:mt-6 md:mt-8 px-4 [font-family:'Geologica',Helvetica] font-bold text-transparent text-3xl sm:text-4xl md:text-5xl lg:text-[64px] text-center tracking-[0] leading-tight md:leading-[76.8px]">
+      <p className="mt-4 sm:mt-6 md:mt-8 px-4 [font-family:'Geologica',Helvetica] font-bold text-transparent text-3xl sm:text-4xl md:text-5xl min-[1200px]:text-[64px] text-center tracking-[0] leading-tight md:leading-[76.8px]">
         <span className="text-[#ffffff]">НАША </span>
         <span className="text-[#08d070]">КОМАНДА</span>
       </p>

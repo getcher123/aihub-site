@@ -5,6 +5,8 @@ import { LaunchPhaseSection } from "./sections/LaunchPhaseSection";
 import { OptimizationPhaseSection } from "./sections/OptimizationPhaseSection";
 import { RoadmapSection } from "./sections/RoadmapSection";
 
+import { DesktopScaleFrame } from "../../../../src/components/DesktopScaleFrame";
+
 const dateLabels = [
   "Ноябрь 2023",
   "Апрель 2024",
@@ -25,7 +27,9 @@ export const Home = (): JSX.Element => {
   return (
     <div className="bg-[#060c24] w-full min-h-screen relative overflow-hidden">
       {/* Desktop layout — preserved exactly as original */}
-      <div className="hidden xl:block relative w-full min-w-[1920px] min-h-[749px]">
+      <div className="hidden min-[1200px]:block">
+        <DesktopScaleFrame baseWidth={1920} baseHeight={749}>
+          <div className="relative h-[749px] w-[1920px]">
         <OptimizationPhaseSection />
         <img
           className="absolute w-[955px] h-[200px] top-[11px] left-[496px]"
@@ -54,12 +58,14 @@ export const Home = (): JSX.Element => {
             </div>
           </div>
         ))}
+          </div>
+        </DesktopScaleFrame>
       </div>
 
       {/* Mobile / Tablet layout */}
-      <div className="xl:hidden flex flex-col items-center px-4 sm:px-6 md:px-10 py-8 sm:py-12 gap-6">
+      <div className="min-[1200px]:hidden flex flex-col items-center px-4 sm:px-6 md:px-10 py-8 sm:py-12 gap-6">
         {/* Title */}
-        <h1 className="[font-family:'Geologica',Helvetica] font-bold text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
+        <h1 className="[font-family:'Geologica',Helvetica] font-bold text-center text-2xl sm:text-3xl md:text-4xl min-[1200px]:text-5xl leading-tight">
           <span className="text-[#08d070]">ДОРОЖНАЯ </span>
           <span className="text-white">КАРТА</span>
           <span className="text-[#08d070]"> AIHUB.</span>
@@ -74,7 +80,7 @@ export const Home = (): JSX.Element => {
         />
 
         {/* Cards grid */}
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 max-w-5xl">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 min-[1200px]:grid-cols-3 gap-4 sm:gap-5 md:gap-6 max-w-5xl">
           {cards.map(({ date, Component }, index) => (
             <div key={index} className="flex flex-col items-center gap-3">
               {/* Date badge */}

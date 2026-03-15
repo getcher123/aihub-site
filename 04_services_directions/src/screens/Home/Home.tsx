@@ -1,3 +1,5 @@
+import { DesktopScaleFrame } from "../../../../src/components/DesktopScaleFrame";
+
 const serviceItems = [
   {
     title: "Виртуальные сотрудники",
@@ -24,7 +26,9 @@ const serviceItems = [
 export const Home = (): JSX.Element => {
   return (
     <div className="bg-[#060c24] w-full relative overflow-hidden" data-model-id="316:6212">
-      <div className="hidden min-[1920px]:block relative min-w-[1920px] min-h-[800px]">
+      <div className="hidden min-[1200px]:block">
+        <DesktopScaleFrame baseWidth={1920} baseHeight={800}>
+          <div className="relative h-[800px] w-[1920px]">
         <div className="absolute top-[172px] left-[344px] w-[456px] h-[456px] bg-x-2l-jg-IF rounded-[228px] blur-[200px] opacity-10" />
 
         <div className="animate-egg-float absolute top-[31px] left-[94px] w-[529px] h-[709px] flex opacity-40 bg-[url(https://c.animaapp.com/M0Twn3KI/img/egg-2.png)] bg-cover bg-[50%_50%]">
@@ -118,9 +122,11 @@ export const Home = (): JSX.Element => {
         <img className="left-[1169px] bottom-0 absolute w-px h-[498px]" alt="Vector" src="https://c.animaapp.com/M0Twn3KI/img/vector-56.svg" />
         <img className="top-[13px] left-[388px] absolute w-px h-[498px]" alt="Vector" src="https://c.animaapp.com/M0Twn3KI/img/vector-54.svg" />
         <img className="top-[273px] left-[485px] absolute w-px h-[498px]" alt="Vector" src="https://c.animaapp.com/M0Twn3KI/img/vector-55.svg" />
+          </div>
+        </DesktopScaleFrame>
       </div>
 
-      <div className="min-[1920px]:hidden relative px-5 sm:px-8 md:px-12 py-12 sm:py-16">
+      <div className="min-[1200px]:hidden relative px-5 sm:px-8 md:px-12 py-12 sm:py-16">
         <div className="absolute left-[-8%] top-0 w-[18rem] h-[18rem] sm:w-[24rem] sm:h-[24rem] bg-x-2l-jg-IF rounded-full blur-[170px] opacity-10 pointer-events-none" />
         <div className="absolute left-[-12%] top-10 w-[42vw] max-w-[18rem] opacity-30 pointer-events-none">
           <img

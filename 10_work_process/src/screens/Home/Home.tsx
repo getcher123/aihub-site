@@ -1,5 +1,7 @@
 import type { CSSProperties } from "react";
 
+import { DesktopScaleFrame } from "../../../../src/components/DesktopScaleFrame";
+
 type DesktopStep = {
   number: string;
   numberLeft: string;
@@ -65,8 +67,9 @@ const getDelayStyle = (index: number, offset = 0): CSSProperties =>
 export const Home = (): JSX.Element => {
   return (
     <div className="bg-[#060c24] w-full relative overflow-hidden" data-model-id="316:6667">
-      <div className="hidden min-[1920px]:block w-full overflow-x-auto">
-        <div className="min-w-[1920px] min-h-[505px] relative">
+      <div className="hidden min-[1200px]:block">
+        <DesktopScaleFrame baseWidth={1920} baseHeight={505}>
+          <div className="relative h-[505px] w-[1920px]">
           <p className="absolute top-[92px] left-[calc(50.00%_-_570px)] w-[1140px] font-bold text-transparent text-[64px] text-center leading-[76.8px] [font-family:'Geologica',Helvetica] tracking-[0] timeline-appear">
             <span className="text-[#ffffff]">ТАК ОБЫЧНО ВЫГЛЯДИТ </span>
             <span className="text-[#bf5bf3]">ПРОЦЕСС РАБОТЫ:</span>
@@ -198,9 +201,10 @@ export const Home = (): JSX.Element => {
             </div>
           </div>
         </div>
+        </DesktopScaleFrame>
       </div>
 
-      <div className="min-[1920px]:hidden max-w-[430px] mx-auto px-5 pt-12 pb-10">
+      <div className="min-[1200px]:hidden max-w-[430px] mx-auto px-5 pt-12 pb-10">
         <p className="font-bold text-transparent text-[32px] leading-[38.4px] [font-family:'Geologica',Helvetica] tracking-[0]">
           <span className="text-white">ТАК ОБЫЧНО ВЫГЛЯДИТ </span>
           <span className="text-[#bf5bf3]">ПРОЦЕСС РАБОТЫ:</span>

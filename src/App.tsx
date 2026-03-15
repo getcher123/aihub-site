@@ -30,7 +30,7 @@ export function App(): JSX.Element {
   return (
     <main className="overflow-x-hidden bg-[#060c24] text-white">
       {sections.map(({ id, Component }) => (
-        <section key={id} id={id} className="scroll-mt-6 xl:scroll-mt-8">
+        <section key={id} id={id} className="scroll-mt-6 min-[1200px]:scroll-mt-8">
           <Component />
         </section>
       ))}

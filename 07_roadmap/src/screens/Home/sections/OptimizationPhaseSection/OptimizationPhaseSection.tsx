@@ -5,7 +5,7 @@ export const OptimizationPhaseSection = ({ mobile }: { mobile?: boolean }): JSX.
       text: (
         <>
           No-code решения с Make и Zapier
-          <br className="hidden xl:inline" />
+          <br className="hidden min-[1200px]:inline" />
           {" "}для автоматизации задач
         </>
       ),
@@ -15,7 +15,7 @@ export const OptimizationPhaseSection = ({ mobile }: { mobile?: boolean }): JSX.
       text: (
         <>
           Обработка и рерайт контента
-          <br className="hidden xl:inline" />
+          <br className="hidden min-[1200px]:inline" />
           {" "}на основе ChatGPT
         </>
       ),

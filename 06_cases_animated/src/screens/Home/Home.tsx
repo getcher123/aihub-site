@@ -338,7 +338,7 @@ const cards: CardDef[] = [
 export const Home = (): JSX.Element => {
   return (
     <div className="bg-[#060c24] w-full min-h-screen" data-model-id="316:6331">
-      <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 min-[1200px]:px-8 py-8 sm:py-12">
 
         {/* Header */}
         <header className="relative mb-8 sm:mb-10">
@@ -365,7 +365,7 @@ export const Home = (): JSX.Element => {
             <button type="button" className="glow-button glow-button--orange relative z-10 flex items-center justify-center gap-2.5 px-10 py-5 bg-j-0jl3o rounded-[600px] shadow-[0px_2px_20px_#fe8a0466,inset_0px_8px_12px_#ffffff4c] cursor-pointer transition-all duration-300 active:scale-[0.98] font-semibold text-black-100 text-base text-center leading-[17.6px] whitespace-nowrap [font-family:'Geologica',Helvetica]">
               Скачать все кейсы
             </button>
-            <img className="absolute -top-5 -left-5 w-[330px] h-[117px] pointer-events-none hidden lg:block" alt="Rectangle" src="https://c.animaapp.com/Raa0F4h8/img/rectangle-12.svg" />
+            <img className="absolute -top-5 -left-5 w-[330px] h-[117px] pointer-events-none hidden min-[1200px]:block" alt="Rectangle" src="https://c.animaapp.com/Raa0F4h8/img/rectangle-12.svg" />
           </div>
         </div>
       </div>
