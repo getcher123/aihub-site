@@ -82,7 +82,7 @@ export const Home = (): JSX.Element => {
             </div>
 
             <div
-              className={revealClassName("absolute top-[351px] left-[390px] h-[159px] w-[652px] overflow-hidden rounded-[30px] shadow-[inset_0_0_20px_rgba(8,208,112,0.15)] transition-shadow duration-300 hover:shadow-[inset_0_0_40px_rgba(8,208,112,0.35)]")}
+              className={revealClassName("absolute top-[351px] left-[390px] h-[159px] w-[652px] overflow-hidden rounded-[20px] shadow-[inset_0_0_20px_rgba(8,208,112,0.15)] transition-shadow duration-300 hover:shadow-[inset_0_0_40px_rgba(8,208,112,0.35)]")}
               style={getRevealStyle(6, 0.06)}
             >
               <img
@@ -168,7 +168,7 @@ export const Home = (): JSX.Element => {
           </div>
 
           <div
-            className={revealClassName("col-span-2 aspect-[652/159] overflow-hidden rounded-2xl shadow-[inset_0_0_20px_rgba(8,208,112,0.15)] transition-shadow duration-300 hover:shadow-[inset_0_0_40px_rgba(8,208,112,0.35)] sm:col-span-2")}
+            className={revealClassName("col-span-2 aspect-[652/159] overflow-hidden rounded-[20px] shadow-[inset_0_0_20px_rgba(8,208,112,0.15)] transition-shadow duration-300 hover:shadow-[inset_0_0_40px_rgba(8,208,112,0.35)] sm:col-span-2")}
             style={getRevealStyle(6, 0.06)}
           >
             <img
