@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 
 import { DesktopScaleFrame } from "../../../../src/components/DesktopScaleFrame";
 import { useRevealOnView } from "../../../../src/hooks/useRevealOnView";
+import greenClientCardFrame from "./assets/frame-1948760013-unified.svg";
 
 const getRevealStyle = (index: number, offset = 0): CSSProperties =>
   ({ "--reveal-delay": `${offset + index * 0.12}s` }) as CSSProperties;
@@ -82,14 +83,10 @@ export const Home = (): JSX.Element => {
             </div>
 
             <div
-              className={revealClassName("absolute top-[351px] left-[390px] h-[159px] w-[652px] overflow-hidden rounded-[20px] shadow-[inset_0_0_20px_rgba(8,208,112,0.15)] transition-shadow duration-300 hover:shadow-[inset_0_0_40px_rgba(8,208,112,0.35)]")}
+              className={revealClassName("absolute top-[351px] left-[390px] h-[159px] w-[652px] overflow-hidden rounded-[30px] shadow-[inset_0_0_20px_rgba(8,208,112,0.15)] transition-shadow duration-300 hover:shadow-[inset_0_0_40px_rgba(8,208,112,0.35)]")}
               style={getRevealStyle(6, 0.06)}
             >
-              <img
-                className="h-full w-full object-cover"
-                alt="Frame"
-                src="https://c.animaapp.com/dNarZ28i/img/frame-1948760013.svg"
-              />
+              <img className="h-full w-full object-cover" alt="Frame" src={greenClientCardFrame} />
             </div>
 
             <div
@@ -168,14 +165,10 @@ export const Home = (): JSX.Element => {
           </div>
 
           <div
-            className={revealClassName("col-span-2 aspect-[652/159] overflow-hidden rounded-[20px] shadow-[inset_0_0_20px_rgba(8,208,112,0.15)] transition-shadow duration-300 hover:shadow-[inset_0_0_40px_rgba(8,208,112,0.35)] sm:col-span-2")}
+            className={revealClassName("col-span-2 aspect-[652/159] overflow-hidden rounded-2xl shadow-[inset_0_0_20px_rgba(8,208,112,0.15)] transition-shadow duration-300 hover:shadow-[inset_0_0_40px_rgba(8,208,112,0.35)] sm:col-span-2")}
             style={getRevealStyle(6, 0.06)}
           >
-            <img
-              className="h-full w-full object-cover"
-              alt="Frame"
-              src="https://c.animaapp.com/dNarZ28i/img/frame-1948760013.svg"
-            />
+            <img className="h-full w-full object-cover" alt="Frame" src={greenClientCardFrame} />
           </div>
 
           <div
